@@ -3,9 +3,15 @@
     Products
 @endsection
 @section('content')
+{{Form::hidden('',$increment=0)}}
 <div class="card">
     <div class="card-body">
       <h4 class="card-title">Products</h4>
+      @if(Session::has('status'))
+        <div class="alert alert-success">
+          {{Session::get('status')}}
+        </div> 
+      @endif
       <div class="row">
         <div class="col-12">
           <div class="table-responsive">
@@ -23,10 +29,10 @@
               </thead>
               <tbody>
                 @foreach ($products as $product)
+                  {{Form::hidden('',$increment+=1)}}
                   <tr>
-                    <td>1</td>
-                    {{-- <td>{{$product->product_image}}</td>
-                    <td><img src="{{asset('/storage/product_images/product-1_1605394272.jpg')}}'"/></td> --}}
+                  <td>{{$increment}}</td>
+                    <td><img src="{{url('/storage/product_images/'.$product->product_image)}}"/></td>
                     <td>{{$product->product_name}}</td>
                     <td>${{$product->product_price}}</td>
                     <td>{{$product->product_category}}</td>
@@ -40,14 +46,13 @@
                       </td>
                     @endif
                     <td>
-                      <button class="btn btn-outline-primary">Edit</button>
-                      <a href="" class="btn btn-outline-danger">Delete</a>
+                      <button class="btn btn-outline-primary" onclick="window.location='{{url('/edit_product/'.$product->id)}}'">Edit</button>
+                    <a href="delete_product/{{$product->id}}" class="btn btn-outline-danger" id="delete">Delete</a>
                       @if ($product->status == 1)
-                        <label class="badge badge-danger">Deactivate</label>
+                        <label class="btn btn-outline-warning" onclick="window.location='{{url('/deactivate_product/'.$product->id)}}'">Deactivate</label>
                       @else
-                        <label class="badge badge-success">Activate</label>
+                        <label class="btn btn-outline-success" onclick="window.location='{{url('/activate_product/'.$product->id)}}'">Activate</label>
                       @endif
-                      
                     </td>
                 </tr>
                 @endforeach

@@ -26,13 +26,18 @@ Route::get('/orders', 'AdminController@orders');
 Route::get('/addcategory', 'CategoryController@addcategory');
 Route::post('/savecategory', 'CategoryController@savecategory');
 Route::get('/categories', 'CategoryController@categories');
-Route::get('/edit/{id}', 'CategoryController@edit');
+Route::get('/edit_category/{id}', 'CategoryController@edit');
 Route::post('/updatecategory', 'CategoryController@updatecategory');
 Route::get('/delete/{id}', 'CategoryController@delete');
 
 Route::get('/products', 'ProductController@products');
 Route::get('/addproduct', 'ProductController@addproduct');
+Route::get('/edit_product/{id}', 'ProductController@edit');
 Route::post('/saveproduct', 'ProductController@saveproduct');
+Route::post('/updateproduct','ProductController@updateproduct');
+Route::get('/delete_product/{id}', 'ProductController@delete');
+Route::get('/activate_product/{id}', 'ProductController@activate');
+Route::get('/deactivate_product/{id}', 'ProductController@deactivate');
 
 Route::get('/sliders', 'SliderController@sliders');
 Route::get('/addslider', 'SliderController@addslider');
