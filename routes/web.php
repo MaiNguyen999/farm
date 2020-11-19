@@ -19,7 +19,9 @@ Route::get('/shop', 'ClientController@shop');
 Route::get('/checkout', 'ClientController@checkout');
 Route::get('/login', 'ClientController@login');
 Route::get('/signup', 'ClientController@signup');
-
+Route::post('/updateqty','ClientController@updateqty');
+Route::get('/removeitem/{id}', 'ClientController@removeitem' );
+Route::post('/postcheckout', 'ClientController@postcheckout');
 
 Route::get('/admin', 'AdminController@dashboard');
 Route::get('/orders', 'AdminController@orders');

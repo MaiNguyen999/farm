@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
 use App\Product;
 use App\Category;
+use Session;
+use App\Cart;
 
 class ProductController extends Controller
 {
@@ -128,6 +131,14 @@ class ProductController extends Controller
     }
     public function addToCart($id){
         $product = Product::find($id);
-        print_r($product);
+        //print_r($product);
+
+        $oldCart = Session::has('cart')? Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $id);
+        Session::put('cart', $cart);
+
+        // dd(Session::get('cart'));
+        return redirect::to('/shop');
     }
 }

@@ -19,8 +19,9 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-7 ftco-animate">
-						<form action="#" class="billing-form">
-							<h3 class="mb-4 billing-heading">Billing Details</h3>
+			{!!Form::open(['action' => 'ClientController@postcheckout', 'method'=>'POST', 'class'=>'billing-form'])!!}
+			{{csrf_field()}}
+				<h3 class="mb-4 billing-heading">Billing Details</h3>
 	          	<div class="row align-items-end">
 	          		<div class="col-md-6">
 	                <div class="form-group">
@@ -99,7 +100,7 @@
 									</div>
                 </div>
 	            </div>
-	          </form><!-- END -->
+	          {!!Form::close()!!}
 					</div>
 					<div class="col-xl-5">
 	          <div class="row mt-5 pt-3">
@@ -121,7 +122,7 @@
 		    					<hr>
 		    					<p class="d-flex total-price">
 		    						<span>Total</span>
-		    						<span>$17.60</span>
+		    						<span>${{Session::get('cart')->totalPrice}}</span>
 		    					</p>
 								</div>
 	          	</div>
