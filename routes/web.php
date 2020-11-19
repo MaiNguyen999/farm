@@ -20,6 +20,7 @@ Route::get('/checkout', 'ClientController@checkout');
 Route::get('/login', 'ClientController@login');
 Route::get('/signup', 'ClientController@signup');
 
+
 Route::get('/admin', 'AdminController@dashboard');
 Route::get('/orders', 'AdminController@orders');
 
@@ -29,6 +30,7 @@ Route::get('/categories', 'CategoryController@categories');
 Route::get('/edit_category/{id}', 'CategoryController@edit');
 Route::post('/updatecategory', 'CategoryController@updatecategory');
 Route::get('/delete/{id}', 'CategoryController@delete');
+Route::get('/view_by_cat/{name}', 'CategoryController@view_by_cat');
 
 Route::get('/products', 'ProductController@products');
 Route::get('/addproduct', 'ProductController@addproduct');
@@ -38,7 +40,13 @@ Route::post('/updateproduct','ProductController@updateproduct');
 Route::get('/delete_product/{id}', 'ProductController@delete');
 Route::get('/activate_product/{id}', 'ProductController@activate');
 Route::get('/deactivate_product/{id}', 'ProductController@deactivate');
+Route::get('addToCart/{id}', 'ProductController@addToCart');
 
 Route::get('/sliders', 'SliderController@sliders');
 Route::get('/addslider', 'SliderController@addslider');
-
+Route::post('/saveslider','SliderController@saveslider');
+Route::get('/edit_slider/{id}', 'SliderController@edit');
+Route::post('/updateslider','SliderController@updateslider');
+Route::get('/delete_slider/{id}', 'SliderController@delete');
+Route::get('/activate_slider/{id}', 'SliderController@activate');
+Route::get('/deactivate_slider/{id}', 'SliderController@deactivate');

@@ -126,4 +126,8 @@ class ProductController extends Controller
         return redirect('/products')->with('status','The '.$product->product_name.
                 ' status has been deactivate successfully');
     }
+    public function addToCart($id){
+        $product = Product::find($id);
+        print_r($product);
+    }
 }
