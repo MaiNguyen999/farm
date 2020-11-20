@@ -39,7 +39,7 @@ class ProductController extends Controller
                 // upload image 
     
                 $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
-                $response = cloudinary()->upload($request->file('product_image')->getRealPath())->getSecurePath();
+                
             } else {
                 $fileNameToStore = 'noimage.jpg';
             }
