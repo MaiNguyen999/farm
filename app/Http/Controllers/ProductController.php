@@ -10,8 +10,8 @@ use App\Category;
 use Session;
 use App\Cart;
 
-require '/config/cloudinary.php';
-
+use Config;
+Config::load('cloudinary');
 class ProductController extends Controller
 {
     //
