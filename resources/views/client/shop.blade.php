@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="hero-wrap hero-bread" style="background-image: url({{asset('frontend/images/bg_1.jpg')}});">
+    <div class="hero-wrap hero-bread" style="background-image: url({{secure_asset('frontend/images/bg_1.jpg')}});">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
@@ -24,7 +24,7 @@
     				<ul class="product-category">
 						<li><a href="{{URL::to('/shop')}}" class="{{(request()->is('shop')?'active':'')}}">All</a></li>
     					@foreach ($categories as $category)
-							<li><a href="{{asset('view_by_cat/'.$category->category_name)}}" class="{{(request()->is('view_by_cat/'.$category->category_name)?'active':'')}}">{{ucwords($category->category_name)}}</a></li>
+							<li><a href="{{secure_asset('view_by_cat/'.$category->category_name)}}" class="{{(request()->is('view_by_cat/'.$category->category_name)?'active':'')}}">{{ucwords($category->category_name)}}</a></li>
 						@endforeach
     				</ul>
     			</div>
@@ -49,7 +49,7 @@
 										<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 											<span><i class="ion-ios-menu"></i></span>
 										</a>
-										<a href={{asset('/addToCart/'.$product->id)}} class="buy-now d-flex justify-content-center align-items-center mx-1">
+										<a href={{secure_asset('/addToCart/'.$product->id)}} class="buy-now d-flex justify-content-center align-items-center mx-1">
 											<span><i class="ion-ios-cart"></i></span>
 										</a>
 										<a href="#" class="heart d-flex justify-content-center align-items-center ">

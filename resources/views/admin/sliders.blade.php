@@ -64,5 +64,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset('backend/js/data-table.js')}}"></script>
+    <script src="{{secure_asset('backend/js/data-table.js')}}"></script>
 @endsection

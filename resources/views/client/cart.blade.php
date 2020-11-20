@@ -37,9 +37,9 @@
 								@foreach ($products as $product)
 								
 								<tr class="text-center">
-									<td class="product-remove"><a href={{asset('/removeitem/'.$product['product_id'])}}><span class="ion-ios-close"></span></a></td>
+									<td class="product-remove"><a href={{secure_asset('/removeitem/'.$product['product_id'])}}><span class="ion-ios-close"></span></a></td>
 									
-									<td class="image-prod"><div class="img" style="background-image:url({{asset('/storage/product_images/'.$product['product_image'])}});"></div></td>
+									<td class="image-prod"><div class="img" style="background-image:url({{secure_asset('/storage/product_images/'.$product['product_image'])}});"></div></td>
 									
 									<td class="product-name">
 										<h3>{{ucwords($product['product_name'])}}</h3>
@@ -128,7 +128,7 @@
 						  <span>$17.60</span>
 					  </p>
 				  </div>
-				  <p><a href={{asset('/checkout')}} class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+				  <p><a href={{secure_asset('/checkout')}} class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
 			  </div>
 		  </div>
 		  </div>
