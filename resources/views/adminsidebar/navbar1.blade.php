@@ -16,7 +16,7 @@
       <ul class="navbar-nav navbar-nav-right">
         <li class="nav-item nav-profile dropdown">
           <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-            <img src="{{asset('backend/images/logo_2H_tech.png')}}" alt="profile"/>
+            <img src="{{secure_asset('backend/images/logo_2H_tech.png')}}" alt="profile"/>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
             <a class="dropdown-item">

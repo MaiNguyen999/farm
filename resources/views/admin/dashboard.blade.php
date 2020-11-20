@@ -244,5 +244,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset('backend/js/dashboard.js')}}"></script>
+    <script src="{{secure_asset('backend/js/dashboard.js')}}"></script>
 @endsection
