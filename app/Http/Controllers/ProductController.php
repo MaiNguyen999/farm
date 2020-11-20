@@ -10,6 +10,9 @@ use App\Category;
 use Session;
 use App\Cart;
 
+require '/vendor/autoload.php';
+require '/config/cloudinary.php';
+
 class ProductController extends Controller
 {
     //
@@ -38,7 +41,7 @@ class ProductController extends Controller
                 // upload image 
     
                 $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
-            
+                $response = cloudinary()->upload($request->file('product_image')->getRealPath())->getSecurePath();
             } else {
                 $fileNameToStore = 'noimage.jpg';
             }
