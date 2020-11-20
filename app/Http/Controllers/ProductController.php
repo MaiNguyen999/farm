@@ -10,7 +10,6 @@ use App\Category;
 use Session;
 use App\Cart;
 
-require '/vendor/autoload.php';
 require '/config/cloudinary.php';
 
 class ProductController extends Controller
